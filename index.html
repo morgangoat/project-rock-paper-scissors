@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Rock Paper Scissors!</title>
+  </head>
+<body>
+
+<h1>Rock Paper Scissors!</h1>
+
+<script>
+
+function computerPlay() {
+  randNum = Math.floor((Math.random()*3));
+  switch (randNum) {
+    case 0: return "rock";
+    case 1: return "paper";
+    case 2: return "scissors";
+    }
+  }
+
+function playerPlay() {
+  while (1 == 1) {
+    let input = (window.prompt("Enter your play:")).toLowerCase();
+    if (input == "rock" || input == "paper" || input == "scissors") {
+      return input;
+      }
+    }
+  }
+
+isDraw = (playerSelection, computerSelection) => playerSelection == computerSelection;
+
+function isWin(playerSelection, computerSelection) {
+  if ((playerSelection == "rock" && computerSelection == "scissors") || (playerSelection == "paper" && computerSelection == "rock") || (playerSelection == "scissors" && computerSelection == "paper")) {
+    return true;
+    }
+  return false;
+  }
+
+function playRound(playerSelection, computerSelection) {
+  if (isDraw(playerSelection, computerSelection)) {
+    return "Draw!";
+    }
+  if (isWin(playerSelection, computerSelection)) {
+    return "YOU WIN!!!";
+    }
+  return "You suck -- you lose!";
+  }
+
+function game() {
+  computerSelection = computerPlay();
+  playerSelection   = playerPlay();
+
+  document.write("Computer: "+computerSelection+"</br>");
+  document.write("Player: "+playerSelection+"</br>");
+  document.write(playRound(playerSelection, computerSelection) + "<br><br>");
+  }
+
+while (1==1) {
+  game();
+  }
+
+</script>
+
+</body>
+</html>

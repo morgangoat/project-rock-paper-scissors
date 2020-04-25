@@ -56,7 +56,8 @@ function game() {
   document.write(playRound(playerSelection, computerSelection) + "<br><br>");
   }
 
-while (1==1) {
+for (gameCount=1; gameCount <= 5; gameCount+=1) {
+  document.write("<h2>Game "+gameCount+"</h2><br>")
   game();
   }
 
